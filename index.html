@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="JS Function/script.js"></script>
+</head>
+</head>
+<body class="light-theme">
+    <div class="display-container d-flex">
+    <input type="text" id="tampilan" disabled>
+        <div class="button-container">
+        <!--Bagian Pertama-->
+        <button onclick="hapusSemua()">Ac</button>
+        <button onclick="hapusSebagian()">C</button>
+        <button onclick="bagi()">/</button>
+        <button onclick="kali()">*</button>
+        <!--Bagian Kedua-->
+        <button onclick="masukanAngka('7')">7</button>
+        <button onclick="masukanAngka('8')">8</button>
+        <button onclick="masukanAngka('9')">9</button>
+        <!--Bagian Ketiga-->
+        <button onclick="masukanAngka('4')">4</button>
+        <button onclick="masukanAngka('5')">5</button>
+        <button onclick="masukanAngka('6')">6</button>
+        <button onclick="kurang()">-</button>
+        <!--Bagian Keempat-->
+        <button onclick="masukanAngka('1')">1</button>
+        <button onclick="masukanAngka('2')">2</button>
+        <button onclick="masukanAngka('3')">3</button>
+        <button onclick="tambah()">+</button>
+        <!--Bagian Kelima-->
+        <button onclick="masukanAngka('0')">0</button>
+        <button onclick="titikKoma()">.</button>
+        <button onclick="samaDengan()">=</button>
+        </div>
+    </div>
+</body>
+</html>
