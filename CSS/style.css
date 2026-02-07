@@ -1,0 +1,384 @@
+/* ===== CSS CUSTOM PROPERTIES (THEME VARIABLES) ===== */
+:root {
+    /* Light Theme Colors */
+    --bg-light: #f5f0e8;
+    --calc-bg-light: #faf8f5;
+    --text-light: #3d3d3d;
+    --btn-light: #e8dcc8;
+    --btn-hover-light: #d4c4ac;
+    --btn-operator-light: #d9c9b0;
+    --display-bg-light: #ebe4d8;
+    --placeholder-light: #c9b89a;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    
+    /* Dark Theme Colors */
+    --bg-dark: #1a1a1a;
+    --calc-bg-dark: #252525;
+    --text-dark: #e0e0e0;
+    --btn-dark: #3a3a3a;
+    --btn-hover-dark: #4a4a4a;
+    --btn-operator-dark: #505050;
+    --display-bg-dark: #2a2a2a;
+    --placeholder-dark: #666666;
+    --shadow-dark: rgba(0, 0, 0, 0.5);
+    
+    /* Active Theme Colors (Default: Light) */
+    --bg-color: var(--bg-light);
+    --calc-bg: var(--calc-bg-light);
+    --text-color: var(--text-light);
+    --btn-bg: var(--btn-light);
+    --btn-hover: var(--btn-hover-light);
+    --btn-operator: var(--btn-operator-light);
+    --display-bg: var(--display-bg-light);
+    --placeholder-color: var(--placeholder-light);
+    --shadow-color: var(--shadow-light);
+}
+
+/* Dark Theme Class */
+body.dark-theme {
+    --bg-color: var(--bg-dark);
+    --calc-bg: var(--calc-bg-dark);
+    --text-color: var(--text-dark);
+    --btn-bg: var(--btn-dark);
+    --btn-hover: var(--btn-hover-dark);
+    --btn-operator: var(--btn-operator-dark);
+    --display-bg: var(--display-bg-dark);
+    --placeholder-color: var(--placeholder-dark);
+    --shadow-color: var(--shadow-dark);
+}
+
+/* Alternative Dark Themes for Color Cycling */
+body.dark-theme-blue {
+    --bg-dark: #0d1b2a;
+    --calc-bg-dark: #1b263b;
+    --text-dark: #e0e1dd;
+    --btn-dark: #415a77;
+    --btn-hover-dark: #778da9;
+    --btn-operator-dark: #4a6fa5;
+    --display-bg-dark: #1b263b;
+    --placeholder-dark: #778da9;
+    --shadow-dark: rgba(0, 0, 0, 0.6);
+}
+
+body.dark-theme-purple {
+    --bg-dark: #1a0b2e;
+    --calc-bg-dark: #2d1b4e;
+    --text-dark: #e5d9f2;
+    --btn-dark: #5a3d7a;
+    --btn-hover-dark: #7b5ea7;
+    --btn-operator-dark: #6a4c93;
+    --display-bg-dark: #2d1b4e;
+    --placeholder-dark: #a991d4;
+    --shadow-dark: rgba(0, 0, 0, 0.6);
+}
+
+body.dark-theme-green {
+    --bg-dark: #0d2818;
+    --calc-bg-dark: #1a3a2e;
+    --text-dark: #d8e9e4;
+    --btn-dark: #2d5a3d;
+    --btn-hover-dark: #4a7c59;
+    --btn-operator-dark: #3a6b4a;
+    --display-bg-dark: #1a3a2e;
+    --placeholder-dark: #7ea98f;
+    --shadow-dark: rgba(0, 0, 0, 0.6);
+}
+
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    /* SMOOTH TRANSITIONS FOR THEME SWITCHING */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== CALCULATOR CONTAINER ===== */
+.calculator-container {
+    max-width: 600px;
+    width: 100%;
+    padding: 30px;
+    background-color: var(--calc-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px var(--shadow-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== TOP CONTROLS ===== */
+.top-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.control-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    /* SMOOTH HOVER ANIMATIONS */
+    transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px var(--shadow-color);
+    filter: brightness(1.1);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+/* ===== DISPLAY AREA ===== */
+.display-area {
+    background-color: var(--display-bg);
+    padding: 20px;
+    border-radius: 15px;
+    min-height: 120px;
+    position: relative;
+    box-shadow: inset 0 2px 8px var(--shadow-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.display-text {
+    font-size: 32px;
+    font-weight: 600;
+    text-align: right;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    min-height: 40px;
+    transition: color 0.3s ease;
+}
+
+.display-placeholder {
+    font-size: 14px;
+    color: var(--placeholder-color);
+    text-align: right;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.error-message {
+    color: #e63946;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+    min-height: 20px;
+    text-align: right;
+}
+
+/* ===== ENTER BUTTON ===== */
+.enter-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--btn-operator);
+    color: var(--text-color);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    transition: all 0.2s ease;
+}
+
+.enter-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px var(--shadow-color);
+    filter: brightness(1.1);
+}
+
+.enter-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+/* ===== CALCULATOR GRID ===== */
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 10px;
+}
+
+.calc-btn {
+    padding: 20px 10px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    /* SMOOTH HOVER ANIMATIONS */
+    transition: all 0.2s ease;
+}
+
+/* Number Buttons */
+.number-btn {
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+}
+
+/* Operator Buttons */
+.operator-btn {
+    background-color: var(--btn-operator);
+    color: var(--text-color);
+}
+
+/* Function Buttons */
+.function-btn {
+    background-color: var(--btn-hover);
+    color: var(--text-color);
+}
+
+/* HOVER ANIMATIONS */
+.calc-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px var(--shadow-color);
+    filter: brightness(1.15);
+}
+
+/* ACTIVE ANIMATIONS */
+.calc-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* Smooth color transitions */
+.calc-btn {
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+/* ===== HISTORY PANEL ===== */
+.history-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100vh;
+    background-color: var(--calc-bg);
+    box-shadow: -5px 0 20px var(--shadow-color);
+    padding: 30px;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: right 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.history-panel.show {
+    right: 0;
+}
+
+.history-panel h5 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.history-item {
+    background-color: var(--display-bg);
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px var(--shadow-color);
+    transition: all 0.2s ease;
+}
+
+.history-item:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 4px 10px var(--shadow-color);
+    filter: brightness(1.1);
+}
+
+.history-expression {
+    font-size: 14px;
+    color: var(--text-color);
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.history-result {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .calculator-container {
+        padding: 20px;
+        max-width: 95%;
+    }
+    
+    .calculator-grid {
+        grid-template-columns: repeat(9, 1fr);
+        gap: 8px;
+    }
+    
+    .calc-btn {
+        padding: 15px 8px;
+        font-size: 14px;
+    }
+    
+    .display-text {
+        font-size: 24px;
+    }
+    
+    .history-panel {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .calculator-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .calc-btn {
+        padding: 18px 10px;
+        font-size: 14px;
+    }
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--display-bg);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--btn-operator);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--btn-hover);
+}
